@@ -1,0 +1,122 @@
+:root {
+    --rb-bg1: rgba(82, 39, 255, 0.08);
+    --rb-bg2: rgba(255, 159, 252, 0.08);
+    --rb-stroke: rgba(255, 255, 255, 0.35);
+    --rb-surface: rgba(255, 255, 255, 0.55);
+    --rb-text: #121212;
+    --rb-subtext: #4b5563;
+    --rb-skill-bg: rgba(0,0,0,0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --rb-surface: rgba(255, 255, 255, 0.06);
+        --rb-text: #f5f5f5;
+        --rb-subtext: #c7c7c7;
+        --rb-skill-bg: rgba(255,255,255,0.08);
+        --rb-stroke: rgba(255, 255, 255, 0.15);
+    }
+}
+
+.rb-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px;
+    border-radius: 18px;
+    background: var(--rb-surface);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--rb-stroke);
+    box-shadow:
+            0 10px 25px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 160ms ease, box-shadow 200ms ease;
+    will-change: transform;
+}
+
+.rb-card:hover {
+    box-shadow:
+            0 16px 40px rgba(0, 0, 0, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* soft gradient film */
+.rb-card__bg {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background:
+            radial-gradient(120% 120% at 0% 0%, var(--rb-bg1) 0%, transparent 60%),
+            radial-gradient(120% 120% at 100% 100%, var(--rb-bg2) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.rb-card__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 1;
+}
+
+.rb-card__avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
+    object-fit: cover;
+    border: 1px solid var(--rb-stroke);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    background: #fff0;
+}
+
+.rb-card__titlegroup {
+    display: grid;
+    gap: 4px;
+}
+
+.rb-card__name {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    color: var(--rb-text);
+}
+
+.rb-card__subtitle {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--rb-subtext);
+}
+
+.rb-card__about {
+    margin: 2px 0 0 0;
+    color: var(--rb-text);
+    line-height: 1.45;
+    z-index: 1;
+}
+
+.rb-card__skills {
+    margin: 4px 0 0 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    z-index: 1;
+}
+
+.rb-skill {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: var(--rb-skill-bg);
+    color: var(--rb-text);
+    border: 1px solid var(--rb-stroke);
+}
+
+/* respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .rb-card { transition: none; }
+    .rb-card:hover { box-shadow: none; }
+}
