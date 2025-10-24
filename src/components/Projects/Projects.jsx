@@ -1,27 +1,31 @@
+// src/components/Projects/Projects.jsx
 import React from "react";
-import data from "../../data/projects.json"; // exact name & case
+import data from "../../data/projects.json"; // keep your JSON as you defined earlier
+
+
+import ProfileCard from "../ui/ProfileCard/ProfileCard.jsx"; // relative
+import "./ProjectsGrid.css";                                  // relative
+
 
 export default function Projects() {
     return (
         <section id="projects">
             <h2>Projects</h2>
 
-            <ul id="project-list">
+            <div className="rb-grid">
                 {data.map((p) => (
-                    <li key={p.id} className="project-card">
-                        <img
-                            src={p.img}
-                            alt={p.alt}
-                            className="project-stickers"
-                        />
-                        <strong>{p.title}</strong> <br />
-                        <em>({p.date} – {p.institution})</em><br />
-                        {p.description}<br /><br />
-                        <em>Skills:</em> {p.skills.join(" · ")}
-                        <br /><br />
-                    </li>
+                    <ProfileCard
+                        key={p.id}
+                        avatar={p.img}
+                        avatarAlt={p.alt || p.title}
+                        name={p.title}
+                        title={`${p.date} – ${p.institution}`}
+                        about={p.description}
+                        skills={p.skills}
+                        withTilt={true}   // set to false if you don’t want the hover tilt
+                    />
                 ))}
-            </ul>
+            </div>
         </section>
     );
 }

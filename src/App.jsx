@@ -9,7 +9,7 @@ export default function App() {
     return (
         <>
             <Navbar />
-            <Hero />          {/* includes LiquidEther background + greeting/clock */}
+            <Hero />          {/* includes greeting/clock */}
             <main>
                 <Projects />   {/* filter + sort + live search + empty state */}
                 <ContactForm /> {/* validation + loading state + success/error */}

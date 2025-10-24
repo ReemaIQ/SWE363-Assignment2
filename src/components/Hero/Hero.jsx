@@ -1,4 +1,3 @@
-// src/components/Hero/Hero.jsx
 import React from "react";
 
 export default function Hero() {
@@ -23,7 +22,7 @@ export default function Hero() {
     return (
         <section id="hero" className="hero">
             <div className="hero__content" style={{ textAlign: "center" }}>
-                <img src="/assets/images/Rـlogo.png" alt="Reema logo" className="hero-logo" />
+                <img src="src/assets/images/Rـlogo.png" alt="Reema logo" className="hero-logo" />
                 <p id="clock">{clock}</p>
                 <p id="greeting">{greeting}</p>
                 <h1>Reema’s Portfolio</h1>

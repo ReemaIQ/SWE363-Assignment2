@@ -1,0 +1,11 @@
+.rb-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+/* spacing for the section heading */
+#projects > h2 {
+    margin: 0 0 16px 0;
+}
